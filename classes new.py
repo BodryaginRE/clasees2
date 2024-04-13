@@ -110,6 +110,26 @@ class Reviewer(Mentor):
         return f"Имя:{self.name},\nФамилия: {self.surname}"
 
 
+def create_instances(num_instances, course):
+    instances = []
+    for _ in range(num_instances):
+        instances.append(Student(course))
+    return instances
+
+
+def calculate_average(instances, attribute):
+    total = 0
+    count = 0
+    for instance in instances:
+        value = instance.get_attribute(attribute)
+        total += value
+        count += 1
+    if count:
+        return total / count
+    else:
+        pass
+
+
 student_1 = Student('Антон', 'Пануфриев')
 student_1.courses_in_progress += ['Python']
 student_1.finished_courses += ['Git']
